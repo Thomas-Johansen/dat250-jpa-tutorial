@@ -1,7 +1,11 @@
 package no.hvl.dat250.jpa.tutorial.creditcards;
 
 import java.util.Collection;
+import java.util.Set;
+
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 public class Customer {
@@ -9,18 +13,17 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public String getName() {
-        // TODO: implement method!
-        return null;
-    }
+    @Getter
+    @Setter
+    public String name;
 
-    public Collection<Address> getAddresses() {
-        // TODO: implement method!
-        return null;
-    }
+    @Getter
+    @Setter
+    @ManyToMany
+    public Set<Address> addresses;
 
-    public Collection<CreditCard> getCreditCards() {
-        // TODO: implement method!
-        return null;
-    }
+    @Getter
+    @Setter
+    @ManyToMany
+    public Set<CreditCard> creditCards;
 }
